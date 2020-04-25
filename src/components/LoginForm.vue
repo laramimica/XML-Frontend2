@@ -1,4 +1,5 @@
 <template>
+<div>
     <b-jumbotron bg-variant="light" text-variant="dark" style="margin-top: 3%;
     margin-left: 4%;
     width: 465px;
@@ -42,13 +43,14 @@
 
       <b-form-group style="margin-left: 10%;">
         <label style="margin-right: 2%">Don't have an account?</label>
-        <b-link href="#foo">Sign Up!</b-link>
+        <router-link to="#foo">Sign Up!</router-link>
         <br/>
         <label style="margin-right: 2%">or</label>
         <b-link href="#foo">Skip!</b-link>
       </b-form-group>
 
     </b-jumbotron>
+</div>
 </template>
 
 <script>
@@ -79,11 +81,6 @@ form {
 .jumbotron {
     padding: 2rem 2rem;
     margin-bottom: 2rem;
-}
-
-body {
-    background-image: url('https://scontent.fbeg3-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/95128562_2496483293999445_6954627335941259264_n.jpg?_nc_cat=110&_nc_sid=b96e70&_nc_eui2=AeHjiGhPQZnFxMvGVnAfpJOwFbohUj9Lh9oVuiFSP0uH2hgx1XgRnwpjRCSxZs8FILg&_nc_ohc=NP0OMrvCMIIAX87brWQ&_nc_ht=scontent.fbeg3-1.fna&_nc_tp=7&oh=143d7cf76e8012b9f082de4cb6719a6f&oe=5EC88FA8');
-    background-repeat: no-repeat;
 }
 
 </style>
