@@ -2,20 +2,32 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import LoginForm from '../components/LoginForm.vue'
-import AgentRegistrationForm from '../components/AgentRegistrationForm'
+import AgentRegistrationForm from '../components/AgentRegistrationForm.vue'
+import ClientRegistrationForm from '../components/ClientRegistrationForm.vue'
+import HomePage from '../components/HomePage.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/LoginForm',
-    name: 'login-form',
+    path: '/login',
+    name: 'login',
     component: LoginForm
   }, 
   {
-    path: '/AgentRegirstrationForm',
+    path: '/agentRegistration',
     name: 'agent-registration',
     component: AgentRegistrationForm
+  },
+  {
+    path: '/clientRegistration',
+    name: 'client-registration',
+    component: ClientRegistrationForm
+  },
+  {
+    path: '/homePage',
+    name: 'home-page',
+    component: HomePage
   }
 ]
 

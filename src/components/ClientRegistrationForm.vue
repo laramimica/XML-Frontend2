@@ -1,14 +1,15 @@
 <template>
 <div>
     <b-jumbotron bg-variant="light" text-variant="dark" style="width: 510px;
-    height: 825px;
+    height: 740px;
     margin-top: 2%;
     margin-left: 3%;">
         <template>
             <h2 style="font-size: 3rem;
             font-weight: 300;
             line-height: 1.2;
-            margin-bottom: 2rem;">Company Registration</h2>
+            margin-bottom: 2rem;
+            margin-left: 6%">Client Registration</h2>
         </template>
 
         <template>
@@ -45,18 +46,9 @@
                 ></b-form-input>
             </b-form-group>
 
-            <b-form-group id="input-group-4" label="Company ID:" label-for="input-4">
+            <b-form-group id="input-group-4" label="Address:" label-for="input-4">
                 <b-form-input
                 id="input-4"
-                v-model="form.companyId"
-                required
-                placeholder="Enter company id"
-                ></b-form-input>
-            </b-form-group>
-
-            <b-form-group id="input-group-5" label="Address:" label-for="input-5">
-                <b-form-input
-                id="input-5"
                 v-model="form.address"
                 required
                 placeholder="Enter address"
@@ -102,7 +94,6 @@
           email: '',
           name: '',
           surname: '',
-          companyId: '',
           address: '',
           password: '',
           repassword: ''
