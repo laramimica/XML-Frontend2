@@ -1,8 +1,14 @@
 <template>
-    <b-jumbotron bg-variant="light" text-variant="dark">
-      <template v-slot:header>Log In</template>
+    <b-jumbotron bg-variant="light" text-variant="dark" style="margin-top: 3%;
+    margin-left: 4%;
+    width: 465px;
+    height: 460px;">
+      <h2 style="font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-left: 25%;">Log In</h2>
 
-      <template v-slot:lead>
+      <template>
         <b-form @submit="onSubmit">
           
           <b-form-group id="input-group-1">
@@ -71,17 +77,8 @@ form {
 }
 
 .jumbotron {
-    margin-top: 3%;
-    margin-left: 6%;
-    width: 460px;
-    height: 460px;
-}
-
-.display-3 {
-    font-size: 4.5rem;
-    font-weight: 300;
-    line-height: 1.2;
-    margin-left: 25%;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
 }
 
 body {

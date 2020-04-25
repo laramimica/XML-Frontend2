@@ -3,8 +3,9 @@
 
     <div>
 
-      <login-form></login-form>
-
+      <!-- <login-form></login-form> -->
+      <agent-registration></agent-registration>
+      
       <router-view />
 
     </div>
@@ -15,11 +16,13 @@
 
 <script>
 
-import LoginForm from "@/components/LoginForm.vue"
+// import LoginForm from "@/components/LoginForm.vue"
+import AgentRegistrationForm from "@/components/AgentRegistrationForm.vue"
 
 export default {
   components: {
-    "login-form" : LoginForm
+    // "login-form" : LoginForm,
+    "agent-registration" : AgentRegistrationForm
   } ,
 
 data() {
