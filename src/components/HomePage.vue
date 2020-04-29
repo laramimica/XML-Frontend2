@@ -18,6 +18,7 @@
                     <router-link to="/clientRegistration" tag="b-dropdown-item">As client</router-link>
                     <router-link to="/agentRegistration" tag="b-dropdown-item">As company</router-link>
                     </b-nav-item-dropdown>
+            <router-link to="/createPriceList" tag="b-nav-item">Create price list</router-link>
         </b-navbar-nav>
         </b-collapse>
         </b-navbar>
