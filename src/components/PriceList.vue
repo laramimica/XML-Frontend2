@@ -14,66 +14,74 @@
 
         <template>
             <b-form bg-variant="light" @submit="onSubmit">
-            <b-form-group
-                id="input-group-1"
-                label="Workdays price:"
-                label-for="input-1"
-            >
-                <b-form-input
-                id="input-1"
-                v-model="form.workdaysPrice"
-                type="number"
-                required
-                placeholder="Enter workday price"
-                ></b-form-input>
-            </b-form-group>
 
-            <b-form-group id="input-group-2" label="Weekend price:" label-for="input-2">
-                <b-form-input
-                id="input-2"
-                v-model="form.weekendPrice"
-                required
-                type="number"
-                placeholder="Enter weekend price"
-                ></b-form-input>
-            </b-form-group>
-
-            <b-form-group id="input-group-3" label="Ads:" label-for="input-3">
-                <div class="row">
-                    <div>
-                        <div style="margin-left: 6%; margin-top:-8%; width:315px">
-                            <br>
-                            <ejs-multiselect :dataSource='oglasi'
-                            :fields='localFields' placeholder="Select an ad">
-                            </ejs-multiselect>
+                <b-form-group id="input-group-3" label="Ads:" label-for="input-3">
+                    <div class="row">
+                        <div>
+                            <div style="margin-left: 6%; margin-top:-8%; width:315px">
+                                <br>
+                                <ejs-multiselect :dataSource='oglasi'
+                                :fields='localFields' placeholder="Select an ad" v-model="form.ads">
+                                </ejs-multiselect>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </b-form-group>
+                </b-form-group>
+                <b-form-group
+                    id="input-group-1"
+                    label="Workdays price:"
+                    label-for="input-1"
+                >
+                    <b-form-input
+                    id="input-1"
+                    v-model="form.workdaysPrice"
+                    type="number"
+                    required
+                    placeholder="Enter workday price"
+                    ></b-form-input>
+                </b-form-group>
 
-            <b-form-group id="input-group-4" label="Price per km:" label-for="input-4">
-                <b-form-input
-                id="input-4"
-                v-model="form.pricePerKm"
-                required
-                placeholder="Enter price per kilometer"
-                type="number"
-                ></b-form-input>
-            </b-form-group>
+                <b-form-group id="input-group-2" label="Weekend price:" label-for="input-2">
+                    <b-form-input
+                    id="input-2"
+                    v-model="form.weekendPrice"
+                    required
+                    type="number"
+                    placeholder="Enter weekend price"
+                    ></b-form-input>
+                </b-form-group>
 
-            <b-form-group id="input-group-5" label="Price for Collision Damage Waiver" label-for="input-5" v-if="this.show">
-                <b-form-input
-                id="input-5"
-                v-model="form.priceCDW"
-                required
-                placeholder="Enter price for Collision Damage Waiver"
-                type="number"
-                ></b-form-input>
-            </b-form-group>
+                <b-form-group id="input-group-4" label-for="input-4" v-for="oglas in oglasi" :value="oglas.id" :key="oglas.id">
+                    <div v-if="oglas.kmLimit && form.ads.includes(oglas.id)">    
+                        <div class="lbl">Price per kilometer for {{ oglas.name }}:</div>
+                        <b-form-input
+                        id="input-4"
+                        v-model="form.pricePerKm"
+                        required
+                        placeholder="Enter price per kilometer"
+                        type="number"
+                        v-if="oglas.kmLimit"
+                        ></b-form-input>
+                    </div>
+                </b-form-group>
 
-            <b-form-group>
-                <b-button type="submit" variant="primary">Create pricelist</b-button>
-            </b-form-group>
+                <b-form-group id="input-group-5" label-for="input-5" v-for="oglas in oglasi" :value="oglas.id" :key="oglas.id">
+                    <div v-if="oglas.CollisionDamageWaiver && form.ads.includes(oglas.id)">
+                        <div class="lbl">Collision Damage Waiver price for {{ oglas.name }}:</div>
+                        <b-form-input
+                        id="input-5"
+                        v-model="form.priceCDW"
+                        required
+                        placeholder="Enter Collision Damage Waiver price"
+                        type="number"
+                        v-if="oglas.CollisionDamageWaiver"
+                        ></b-form-input>
+                    </div>
+                </b-form-group>
+
+                <b-form-group>
+                    <b-button type="submit" variant="primary" @click="onSubmit()">Create pricelist</b-button>
+                </b-form-group>
 
             </b-form>
 
@@ -98,27 +106,34 @@ Vue.use(MultiSelectPlugin);
           priceCDW: '',
         },
         show: true,
-        CollisionDamageWaiver: true,
         oglasi: [
             {
                 id: 1,
-                name: 'PrviOglas'
+                name: 'PrviOglas',
+                kmLimit: true,
+                CollisionDamageWaiver: false
             },
             {
                 id: 2,
-                name: 'DrugiOglas'
+                name: 'DrugiOglas',
+                kmLimit: true,
+                CollisionDamageWaiver: true
             },
             {
                 id: 3,
-                name: 'TreciOglas'
+                name: 'TreciOglas',
+                kmLimit: false,
+                CollisionDamageWaiver: true
             }
 
         ],
+        arr : ['Gavin', 'Richard', 'Erlich', 'Gilfoyle'],
 
         localFields: { value: 'id', text: 'name' }
       }
     },
     methods: {
+        onSubmit() {}
     }
 }
 </script>
@@ -129,6 +144,10 @@ Vue.use(MultiSelectPlugin);
     padding: 2rem 2rem;
     margin-bottom: 2rem;
 } 
+
+.lbl {
+    margin-bottom: 12px;
+}
 
 @import url(https://cdn.syncfusion.com/ej2/material.css);
 
